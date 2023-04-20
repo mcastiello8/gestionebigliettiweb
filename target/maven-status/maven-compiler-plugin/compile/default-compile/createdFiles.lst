@@ -1,0 +1,9 @@
+it/gestionebigliettiweb/service/BigliettoServiceImpl.class
+it/gestionebigliettiweb/web/listener/LocalEntityManagerFactoryListener.class
+it/gestionebigliettiweb/dao/IBaseDAO.class
+it/gestionebigliettiweb/service/MyServiceFactory.class
+it/gestionebigliettiweb/service/BigliettoService.class
+it/gestionebigliettiweb/model/Biglietto.class
+it/gestionebigliettiweb/utility/UtilityBigliettoForm.class
+it/gestionebigliettiweb/dao/BigliettoDAO.class
+it/gestionebigliettiweb/dao/BigliettoDAOImpl.class
