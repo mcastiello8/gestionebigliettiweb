@@ -40,7 +40,7 @@
 				    </div>
 				    <div class='card-body'>
 		
-							<h6 class="card-title">I campi con <span class="text-danger">*</span> sono obbligatori</h6>
+							<h5 class="card-title text-info">Sei sicuro di voler eliminare questo biglietto?</h5>
 		
 		
 							<form method="post" action="ExecuteDeleteBigliettoServlet" class="row g-3" novalidate="novalidate">

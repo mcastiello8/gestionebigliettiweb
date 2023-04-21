@@ -40,20 +40,19 @@ public class ExecuteUpdateBigliettoServlet extends HttpServlet {
 		// che per inserire) e faccio il binding dei parametri
 		Biglietto bigliettoInstance = UtilityBigliettoForm.createBigliettoFromAll(idBigliettoToUpdate, provenienzaInputParam,
 				destinazioneInputParam, dataStringParam, prezzoInputStringParam);
-
+		
+		bigliettoInstance.setId(idBigliettoToUpdate);
 		
 		// se la validazione non risulta ok
-		try {
+		
 		if (!UtilityBigliettoForm.validateBigliettoBean(bigliettoInstance)) {
 			
+			request.setAttribute("BigliettoToUpdate", bigliettoInstance);
 			request.setAttribute("errorMessage", "Attenzione sono presenti errori di validazione");
-			request.setAttribute("BigliettoToUpdate", MyServiceFactory.getBigliettoServiceInstance().caricaSingoloElemento(idBigliettoToUpdate));
 			request.getRequestDispatcher("/biglietto/edit.jsp").forward(request, response);
 			return;
 		}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 
 		// se sono qui i valori sono ok quindi posso creare l'oggetto da inserire
 		// occupiamoci delle operazioni di business
