@@ -68,7 +68,7 @@
 			        <h2>Lista Biglietti</h2>
 			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
 			        <a href="ListBigliettiServlet" class="icon-link">
-			          Vai alla funzionalità
+			          Visualizza tutti i biglietti
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
 			      </div>

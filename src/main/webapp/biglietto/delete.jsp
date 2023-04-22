@@ -2,6 +2,8 @@
 <%@page import="it.gestionebigliettiweb.model.Biglietto"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+    
 <!DOCTYPE html>
 <html>
 	 <head>
@@ -36,43 +38,42 @@
 			  
 			  <div class='card'>
 				    <div class='card-header'>
-				        <h5>Elimina elemento</h5> 
+				        <h5 class="card-title text-info">Sei sicuro di voler eliminare questo biglietto?</h5> 
 				    </div>
 				    <div class='card-body'>
 		
-							<h5 class="card-title text-info">Sei sicuro di voler eliminare questo biglietto?</h5>
-		
-		
 							<form method="post" action="ExecuteDeleteBigliettoServlet" class="row g-3" novalidate="novalidate">
 							
-								<% Biglietto bigliettoInPagina = (Biglietto)request.getAttribute("BigliettoToDelete"); %>
-							
+								<c:set var="bigliettoInPagina" value="${requestScope.BigliettoToDelete}" />
+								
+								
 								<div class='card-body'>
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Provenienza:</dt>
-							  <dd class="col-sm-9"><%=bigliettoInPagina.getProvenienza() %></dd>
+							  <dd class="col-sm-9"><c:out value="${bigliettoInPagina.provenienza}" /></dd>
 					    	</dl>
 					    	
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Destinazione:</dt>
-							  <dd class="col-sm-9"><%=bigliettoInPagina.getDestinazione() %></dd>
+							  <dd class="col-sm-9"><c:out value="${bigliettoInPagina.destinazione}" /></dd>
 					    	</dl>
 					    	
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Data:</dt>
-							  <dd class="col-sm-9"><%=bigliettoInPagina.getData()!=null? bigliettoInPagina.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")):"N.D."  %></dd>
+							  <dd class="col-sm-9"><c:out value="${bigliettoInPagina.data.format(DateTimeFormatter.ofPattern('dd/MM/yyyy'))}" />
+</dd>
 					    	</dl>
 					    		
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Prezzo:</dt>
-							  <dd class="col-sm-9"><%=bigliettoInPagina.getPrezzo() %></dd>
+							  <dd class="col-sm-9"><c:out value="${bigliettoInPagina.prezzo}" /></dd>
 					    	</dl>
 					    	
 					    	
 					    	
 					    </div>
-								<input type="hidden" class="form-control" name="idDelete" id="idDeleteIDd" 
-									value="<%=bigliettoInPagina.getId()!=null?bigliettoInPagina.getId():"" %>" required>
+								<input type="hidden" class="form-control" name="idDelete" id="idDeleteID" 
+									value=<c:out value="${bigliettoInPagina.id}" /> required>
 								
 								
 							<div class="col-12">

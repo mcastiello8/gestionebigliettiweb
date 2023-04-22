@@ -21,7 +21,7 @@ public class ExecuteUpdateBigliettoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String idBigliettoDaAggiornare=request.getParameter("idUpdate");
+		String idBigliettoDaAggiornare=request.getParameter("id");
 		
 		if (!NumberUtils.isCreatable(idBigliettoDaAggiornare)) {
 			// qui ci andrebbe un messaggio nei file di log costruito ad hoc se fosse attivo
@@ -35,7 +35,7 @@ public class ExecuteUpdateBigliettoServlet extends HttpServlet {
 		String destinazioneInputParam = request.getParameter("destinazione");
 		String dataStringParam = request.getParameter("data");
 		String prezzoInputStringParam = request.getParameter("prezzo");
-		Long idBigliettoToUpdate = Long.parseLong(request.getParameter("idUpdate"));
+		Long idBigliettoToUpdate = Long.parseLong(request.getParameter("id"));
 		// preparo un bean (che mi serve sia per tornare in pagina
 		// che per inserire) e faccio il binding dei parametri
 		Biglietto bigliettoInstance = UtilityBigliettoForm.createBigliettoFromAll(idBigliettoToUpdate, provenienzaInputParam,
